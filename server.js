@@ -15,16 +15,31 @@ app.use(express.urlencoded({extended: true})); // HTML forum dan kelgan habarlar
 
 // 3 View code. 
 // BSSR (BackEnd Server Side Rendering => BackEndda view (FrontEnd) yasash). Bu "Traditional" usul xisoblanadi! => EJS dan foydalanamiz
-app.set("view", "views"); // bu yerda "views"-> folder nomi
+app.set("views", "views"); // bu yerda "views"-> folder nomi
 app.set("view engine", "ejs");
 
 // 4 Routing code (Web sahifani o`rnatilgan portda korinishini ta`minlaydi)
-app.get("/hello", function (req, res) {
-    res.end(`<h1 style="background: red">HELLO WORLD!</h1>`);
+// app.get("/hello", function (req, res) {
+//     res.end(`<h1 style="background: red">HELLO WORLD!</h1>`);
+// });
+// app.get("/gift", function (req, res) {
+//     res.end(`<h1 style="background: green">Siz sovgalar sahifasidasiz</h1>`);
+// });
+
+// bu yerda "post" => O`zi bn ma`lumotni olib kelib Database ga o`sha ma`lumotni yozish un kk
+app.post("/create-item", (req, res) => {
+    // TODO: code with db here
+
+    // console.log(req.body);
+    // console.log(req);  => 3 qism korinadi
+    // res.json({test: "success"});
 });
-app.get("/gift", function (req, res) {
-    res.end(`<h1 style="background: green">Siz sovgalar sahifasidasiz</h1>`);
+
+// bu yerda "get" => Database dan ma`lumotni olish (o`qish) un kk
+app.get("/", function (req, res) {
+    res.render("harid");
 });
+
 
 const server = http.createServer(app);
 let PORT = 3000;
