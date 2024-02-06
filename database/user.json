@@ -1,9 +1,9 @@
 {
-    "name": "MIKE",
+    "name": "Mike",
     "profession": "Software Engineer",
     "age": 36,
     "residence": "S.Korea",
-    "address": "S.Korea, Daegu",
+    "address": "Daegu, Gyeongsan",
     "language": ["Uzbek", "Korean", "English", "Russian"],
     "skills": ["HTML", "CSS", "JS", "NodeJS", "ReactJS"],
     "extra_skills": ["Bootsrap", "Materialize", "Styling, Sass", "Django", "Flask","GIT knowlage"],
