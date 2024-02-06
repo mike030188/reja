@@ -2,6 +2,17 @@ console.log("Web Serverni boshlash");
 const express = require('express'); // EXTERNAL package
 const app = express(); // application variable
 const http = require('http'); // CORE package
+const fs = require('fs'); // CORE package
+
+let user;
+fs.readFile("database/user.json", "utf8", (err, data) => {
+    if (err) {
+        console.log("ERRORR", err);
+    } else {
+        user = JSON.parse(data) // Converts a JavaScript Object Notation (JSON) string into an object.
+    }
+});
+
 
 // *** Express Server qurish bosqichlari ***
 
@@ -33,6 +44,10 @@ app.post("/create-item", (req, res) => {
     // console.log(req.body);
     // console.log(req);  => 3 qism korinadi
     // res.json({test: "success"});
+});
+
+app.get('/author', (req, res) => {
+    res.render("author", { user: user })
 });
 
 // bu yerda "get" => Database dan ma`lumotni olish (o`qish) un kk
