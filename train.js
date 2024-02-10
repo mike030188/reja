@@ -1,22 +1,46 @@
 console.log("TASK ishga tuwdi");
 
+// *** B - TASK ***
+
+// Shunday function tuzing, u 1ta string parametrga ega bolsin, 
+// hamda osha stringda qatnashgan raqamlarni sonini bizga return qilsin.
+// MASALAN countDigits("ad2a54y79wet0sfgb9") 7ni return qiladi.
+
+function countDigits(str) {
+  
+  const digitMatches = str.match(/\d/g);  // Regex syntax in JavaScript "/\d" matches a decimal digit character (i.e. 0-9). "g" - globally
+
+  // Berilgan string ichidan raqamlar bor yoqligini check qilamiz
+  if (digitMatches) {
+    // raqamlar soni(uzunligi)ni return qil 
+    return digitMatches.length;
+  } else {
+    // Agar raqam topolmasang, return 0
+    return 0;
+  }
+}
+
+const str = "ad2a54y79wet0sfgb9";
+const raqamSoni = countDigits(str);
+console.log(`Raqamlar soni: ${raqamSoni}`);
+
 // *** A - TASK ***
 // Shunday 2 parametrli function tuzing, hamda birinchi parametrdagi letterni
 // ikkinchi parametrdagi sozda qatnashgan sonini return qilishi kerak boladi.
 // MASALAN: countLetter("e", "engineer") => "3" ni return qiladi.
 
-function countLetter(letter, string) {
-  let count = 0; 
+// function countLetter(letter, string) {
+//   let count = 0; 
   
-  for(let i = 0; i < string.length; i++){
-    if (string.charAt(i) === letter) {
-        count++; 
-    }
-  }
-  return count; 
-}
+//   for(let i = 0; i < string.length; i++){
+//     if (string.charAt(i) === letter) {
+//         count++; 
+//     }
+//   }
+//   return count; 
+// }
 
-console.log(countLetter("e", "engineer")); 
+// console.log(countLetter("e", "engineer")); 
 
 
 // *** Asynchronous functionlarni qo`llash ***
@@ -24,6 +48,12 @@ console.log(countLetter("e", "engineer"));
 // Async function proceeded after Sync functions!!!
 // Async will use in "defination", .then && .catch || async/await will use in "call" 
 
+
+// DEFINE                      CALL
+
+// callback                    callback 
+// async/await | promise       then/catch    => faqat single javoblarda iwlatish yaxwi
+// async/await | promise       async/await   => javoblar ketma-ketligida
 
 // console.log("Jack Ma maslahatlari");
 // const list=[
