@@ -42,7 +42,18 @@ app.set("view engine", "ejs");
 
 // bu yerda "post" => O`zi bn ma`lumotni olib kelib Database ga o`sha ma`lumotni yozish un kk
 app.post("/create-item", (req, res) => {
+    console.log("user entered / create-item");
     // TODO: code with db here
+    console.log(req.body);
+    // res.end("success");
+    const new_reja = req.body.reja;
+    db.collection("plans").insertOne({ reja: new_reja }, (err, data) => {
+        if (err) {console.log("err");
+        res.end("something went wrong");
+        } else {
+            res.end("successfully added");
+        } 
+    });   
 
     // console.log(req.body);
     // console.log(req);  => 3 qism korinadi
@@ -55,7 +66,18 @@ app.get('/author', (req, res) => {
 
 // bu yerda "get" => Database dan ma`lumotni olish (o`qish) un kk
 app.get("/", function (req, res) {
-    res.render("reja");
+    console.log("user entered /");
+    db.collection("plans")
+        .find()
+        .toArray((err, data) => {
+            if (err) {
+                console.log(err); // agar err bo`lsa clientni kuttirmasdan procesni end qilsin
+                res.end("something went wrong");
+            } else {
+                // console.log(data);
+                res.render("reja", { items: data });
+            }
+    })
 });
 
 module.exports = app;
