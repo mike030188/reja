@@ -3,6 +3,8 @@ const express = require('express'); // EXTERNAL package
 const app = express(); // application variable
 const fs = require('fs'); // CORE package
 
+const mongodb = require("mongodb"); // EXTERNAL package
+
 
 // MongoDB chaqiriw...
 const db = require("./server").db(); // shu "db" => orqali biz MongoDB da ma`lumotlarni uqiw, edit, delete qilishimiz mumkin
@@ -64,6 +66,36 @@ app.post("/create-item", (req, res) => {
     // console.log(req);  => 3 qism korinadi
     // res.json({test: "success"});
 });
+
+/***  delete operations ***/
+app.post("/delete-item", (req, res) => {
+    const id = req.body.id; //frontendan post qilingan bodyni id sini qiymatini qabul qilib olyapmiz
+    // console.log(id);//-> 64607a25d3f1af06501b6e3c
+    /*** databasedan biz tanlagan rejani o'chirish ***/
+    db.collection("plans").deleteOne({ _id: new mongodb.ObjectId(id)}, function (err, data) {
+      res.json({state: "success"});
+    })
+  });
+
+/***  edit operations ***/
+app.post("/edit-item", (req, res) => {
+    const data = req.body;
+    console.log(data);
+    db.collection("plans").findOneAndUpdate(
+      { _id: new mongodb.ObjectId(data.id) },
+      { $set: { reja: data.new_input } },
+      function (err, data) {
+        res.json({ state: "success" });
+      });
+  });
+  /***  Hamma rejalarni o'chirish ***/
+  app.post("/delete-all", (req, res) => {
+    if (req.body.delete_all) {
+      db.collection("plans").deleteMany(function () {
+        res.json({ state: "Hamma rejalar o'chirildi" });
+      });
+    }
+  });
 
 app.get('/author', (req, res) => {
     res.render("author", { user: user })

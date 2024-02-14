@@ -1,28 +1,32 @@
 console.log("TASK ishga tuwdi");
 
+
+
+
+
 // *** B - TASK ***
 
 // Shunday function tuzing, u 1ta string parametrga ega bolsin, 
 // hamda osha stringda qatnashgan raqamlarni sonini bizga return qilsin.
 // MASALAN countDigits("ad2a54y79wet0sfgb9") 7ni return qiladi.
 
-function countDigits(str) {
+// function countDigits(str) {
   
-  const digitMatches = str.match(/\d/g);  // Regex syntax in JavaScript "/\d" matches a decimal digit character (i.e. 0-9). "g" - globally
+//   const digitMatches = str.match(/\d/g);  // Regex syntax in JavaScript "/\d" matches a decimal digit character (i.e. 0-9). "g" - globally
 
-  // Berilgan string ichidan raqamlar bor yoqligini check qilamiz
-  if (digitMatches) {
-    // raqamlar soni(uzunligi)ni return qil 
-    return digitMatches.length;
-  } else {
-    // Agar raqam topolmasang, return 0
-    return 0;
-  }
-}
+//   // Berilgan string ichidan raqamlar bor yoqligini check qilamiz
+//   if (digitMatches) {
+//     // raqamlar soni(uzunligi)ni return qil 
+//     return digitMatches.length;
+//   } else {
+//     // Agar raqam topolmasang, return 0
+//     return 0;
+//   }
+// }
 
-const str = "ad2a54y79wet0sfgb9";
-const raqamSoni = countDigits(str);
-console.log(`Raqamlar soni: ${raqamSoni}`);
+// const str = "ad2a54y79wet0sfgb9";
+// const raqamSoni = countDigits(str);
+// console.log(`Raqamlar soni: ${raqamSoni}`);
 
 // *** A - TASK ***
 // Shunday 2 parametrli function tuzing, hamda birinchi parametrdagi letterni
