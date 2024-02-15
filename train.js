@@ -1,5 +1,54 @@
 console.log("TASK ishga tuwdi");
 
+// *** C - TASK ***
+// Shunday function tuzing, u 2ta string parametr ega bolsin, hamda
+// agar har ikkala string bir hil harflardan iborat bolsa true aks holda false qaytarsin
+// MASALAN checkContent("mitgroup", "gmtiprou") return qiladi true;
+
+function checkContent(text1, text2) {
+
+const sortedText1 = text1.split('').sort().join('');
+const sortedText2 = text2.split('').sort().join('');
+
+    if (sortedText1 === sortedText2) {
+        return true;
+    } else {
+        console.log("Berilgan stringlar bir xil harflardan iborat emas!");
+        return false;
+    }
+}
+
+const text1 = "mitgroup";
+const text2 = "gmtiprou";
+const natija = checkContent(text1, text2);
+console.log("natija: ", natija);
+
+// *** Challenge - TASK - 1 ***
+
+const animal_list = ["fox", "ant", "cat", "dog", "pet", "goat", "cow", "frog", "mole", "bat", "bear", "wolf"];
+
+function findAnimals(txt) {
+    const Txt = txt.toLowerCase();  // Convert to lowercase for case-insensitive comparison 
+
+    const foundAnimals = animal_list.filter(animal => {
+        const animalChars = animal.split('');
+        return animalChars.every(char => Txt.includes(char));
+    });
+
+    // we can use ternary operator here
+    return foundAnimals.length > 0 ? foundAnimals : null;
+}
+
+    // or (same meaning)
+    // if (foundAnimals.length > 0) {
+    //     return foundAnimals;
+    // } else {
+    //     return null;
+    // }
+
+const javob = findAnimals('Fdgwoalt');
+console.log("Javob:", javob);
+
 // *** D - TASK ***
 // Shunday class tuzing nomi Shop, va uni constructoriga 3 hil mahsulot pass bolsin,
 // hamda classning 3ta methodi bolsin, biri qoldiq, biri sotish va biri qabul.
@@ -9,38 +58,38 @@ console.log("TASK ishga tuwdi");
 // shop.sotish('non', 3) & shop.qabul('cola', 4) & shop.qoldiq() return
 // hozir 20:50da 1ta non, 5ta lagmon va 6ta cola mavjud!
 
-const moment = require("moment");
-const time = moment().format("HH:mm")
-class shop {
-    kebab;
-    lavash;
-    cola;
+// const moment = require("moment");
+// const time = moment().format("HH:mm")
+// class shop {
+//     kebab;
+//     lavash;
+//     cola;
 
-    constructor(kebab, lavash, cola) {
-        this.kebab = kebab;
-        this.lavash = lavash;
-        this.cola = cola;
-    }
+//     constructor(kebab, lavash, cola) {
+//         this.kebab = kebab;
+//         this.lavash = lavash;
+//         this.cola = cola;
+//     }
     
-    qoldiq(){
-        console.log(`Hozir ${time}da ${this.kebab}ta kebab, ${this.lavash}ta lavash va ${this.cola}ta cola mavjud!`);
-    }
-    sotish(kebab){
-        this.kebab -= kebab;
-        console.log(`Biz ${kebab}ta kebab sotdik va hozir ${time}da ${this.kebab}ta kebab, ${this.lavash}ta lavash va ${this.cola}ta cola qoldi `);
-    }
-    qabul(cola){
-        this.cola += cola;
-        console.log(`biz ${cola}ta cola qabul qildik va Hozir ${time}da ${this.kebab}ta kebab, ${this.lavash}ta lavash va ${this.cola}ta cola boldi `);
-    }
-}
+//     qoldiq(){
+//         console.log(`Hozir ${time}da ${this.kebab}ta kebab, ${this.lavash}ta lavash va ${this.cola}ta cola mavjud!`);
+//     }
+//     sotish(kebab){
+//         this.kebab -= kebab;
+//         console.log(`Biz ${kebab}ta kebab sotdik va hozir ${time}da ${this.kebab}ta kebab, ${this.lavash}ta lavash va ${this.cola}ta cola qoldi `);
+//     }
+//     qabul(cola){
+//         this.cola += cola;
+//         console.log(`biz ${cola}ta cola qabul qildik va Hozir ${time}da ${this.kebab}ta kebab, ${this.lavash}ta lavash va ${this.cola}ta cola boldi `);
+//     }
+// }
 
  
 
- const myShop = new shop(4,5,2);
- myShop.qoldiq();
- myShop.sotish(3);
- myShop.qabul(4);
+//  const myShop = new shop(4,5,2);
+//  myShop.qoldiq();
+//  myShop.sotish(3);
+//  myShop.qabul(4);
 
 
 

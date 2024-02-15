@@ -22,8 +22,9 @@ fs.readFile("database/user.json", "utf8", (err, data) => {
 // *** Express Server qurish bosqichlari ***
 
 // 1 Kirish code
-app.use(express.static("public")); // bu clientga faqat public folderlarni korsatish
-app.use(express.json()); // bu json formatni objectga aylantirib berish
+// app.use functioni Express.js frameworkida kelgan HTTP requestlarni qayta iwlaw va o`zgartiriw kiritiw un iwlatiladi 
+app.use(express.static("public")); // bu clientga faqat public folderlarni korsatish express.static middleware dan foyd.mumkin
+app.use(express.json()); // bu json formatni objectga aylantirib beradigan middleware
 app.use(express.urlencoded({extended: true})); // HTML forum dan kelgan habarlarni express qabul qilishi un, aks holda "ignore qiladi"
 
 // 2 Session code (in this project session is not applied)

@@ -20,7 +20,7 @@ document
   .addEventListener("submit", function (event) {
     event.preventDefault();
 
-    // axios => bu modern post hisoblanadi, uning yaxwi tomoni kelayotgan 'json' datani automatik "object"ga aylantiradi
+    // axios => bu modern post hisoblanadi = (fetch, ajax, jquery ham alternative), uning yaxwi tomoni kelayotgan 'json' datani automatik "object"ga aylantiradi
     // hamda "object"datani express serverga automatik "json" formatda post qiladi. 
     // *** shuning un 'DB' ham traditionaldan modernga otkaziw kk! ***
     axios
