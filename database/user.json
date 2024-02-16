@@ -1,0 +1,20 @@
+{
+    "name": "Mike",
+    "profession": "Software Engineer",
+    "age": 36,
+    "residence": "S.Korea",
+    "address": "Daegu, Gyeongsan",
+    "language": ["Uzbek", "Korean", "English", "Russian"],
+    "skills": ["HTML", "CSS", "JS", "NodeJS", "ReactJS"],
+    "extra_skills": ["Bootsrap", "Materialize", "Styling, Sass", "Django", "Flask","GIT knowlage"],
+    "work_place": "IT group",
+    "service_desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla quos",
+    "about_me": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla quos nostrum earum itaque commodi dolores aliquam voluptas quod animi incidunt!",
+    "city": "Gyeongsan City",
+    "title": ["Flower", "Seedling", "Garden", "Old", "New"],
+    "flower_desc": ["What is a Flower?", "What is a Seedling?", "What is a Garden?"],
+    "flower_name": ["Tulip", "Daffodil", "Poppy", "Sunflower", "Bluebell", "Rose", "Snowdrop", "Cherry", "Blossom"],
+    "flower_price": ["15$","25$","12$","20$","35$","30$","22$","19$","9$"],
+    "famous_words": ["I hope someday I'll join you. And together we`ll build the future for everyone."],
+    "famous_name": ["Steve Jobs"]
+    }

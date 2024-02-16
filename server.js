@@ -1,48 +1,33 @@
-console.log("Web Serverni boshlash");
-const express = require('express'); // EXTERNAL package
-const app = express(); // application variable
 const http = require('http'); // CORE package
-
-// *** Express Server qurish bosqichlari ***
-
-// 1 Kirish code
-app.use(express.static("public")); // bu clientga faqat public folderlarni korsatish
-app.use(express.json()); // bu json formatni objectga aylantirib berish
-app.use(express.urlencoded({extended: true})); // HTML forum dan kelgan habarlarni express qabul qilishi un, aks holda "ignore qiladi"
-
-// 2 Session code (in this project session is not applied)
+const mongodb = require('mongodb');
 
 
-// 3 View code. 
-// BSSR (BackEnd Server Side Rendering => BackEndda view (FrontEnd) yasash). Bu "Traditional" usul xisoblanadi! => EJS dan foydalanamiz
-app.set("views", "views"); // bu yerda "views"-> folder nomi
-app.set("view engine", "ejs");
+// MongoDB connect (1-step) ... 2-step is connect to Server
+let db;
+const connectionString =
+  "mongodb+srv://mike030188:zVniEljrW3IXEYwI@cluster0.lpbal5g.mongodb.net/Reja";
 
-// 4 Routing code (Web sahifani o`rnatilgan portda korinishini ta`minlaydi)
-// app.get("/hello", function (req, res) {
-//     res.end(`<h1 style="background: red">HELLO WORLD!</h1>`);
-// });
-// app.get("/gift", function (req, res) {
-//     res.end(`<h1 style="background: green">Siz sovgalar sahifasidasiz</h1>`);
-// });
+mongodb.connect(connectionString, 
+    {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    }, 
+    (err, client) => {
+        if (err) console.log("ERROR on connection MongoDB");
+        else {
+            console.log("MongoDB connection succeed");
+            // console.log(client); "client" ni biz kelejakda juda kop iwlatamiz shuning un uni export qivolamiz
+            module.exports = client;
 
-// bu yerda "post" => O`zi bn ma`lumotni olib kelib Database ga o`sha ma`lumotni yozish un kk
-app.post("/create-item", (req, res) => {
-    // TODO: code with db here
+            const app = require('./app'); 
+            // Server connect (2-step)
+            const server = http.createServer(app);
+            let PORT = 3000;
+            server.listen(PORT, function () {
+                console.log(
+                    `The server is running successfully on port: ${PORT}, http://localhost:${PORT}`
+                );
+            });
+        }
+    })
 
-    // console.log(req.body);
-    // console.log(req);  => 3 qism korinadi
-    // res.json({test: "success"});
-});
-
-// bu yerda "get" => Database dan ma`lumotni olish (o`qish) un kk
-app.get("/", function (req, res) {
-    res.render("harid");
-});
-
-
-const server = http.createServer(app);
-let PORT = 3000;
-server.listen(PORT, function () {
-    console.log(`The server is running successfully on port: ${PORT}`);
-});
