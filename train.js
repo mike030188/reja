@@ -1,24 +1,43 @@
 console.log("TASK ishga tuwdi");
 
-// *** F - TASK ***
-// Shunday findDoublers function tuzing, unga faqat bitta string 
-// argument pass bolib, agar stringda bir hil harf qatnashgan bolsa
-// true, qatnashmasa false qaytarishi kerak.
-// MASALAN: getReverse("hello") return true return qiladi
+// *** G - TASK ***
+// Shunday function tuzingki unga integerlardan iborat array pass 
+// bolsin va function bizga osha arrayning eng katta qiymatiga tegishli 
+// birinchi indexni qaytarsin.
+// MASALAN: getHighestIndex([5, 21, 12, 21, 8]) return qiladi 1 sonini.
 
-function findDoublers (str) {
-    for (let i = 0; i <= str.length; i++) {
-        for (let j = i + 1; j < str.length; j++) {  // bu yerda "j=i+1" => "i" indexdan keyingi harfga utib ket degan ma`no
-            if(str[j] === str[i]) {
-                return true;
-            }
-        }
-    }
-    return false;
-}
+const array = [5, 21, 12, 21, 8];
 
-const natija = findDoublers("hello");
-console.log("Natija:", natija);
+const max = Math.max(...array);
+const min = Math.min(...array); // anyway
+
+const indexMax = array.indexOf(max);
+const indexMin = array.indexOf(min);
+
+console.log("max.index:", indexMax);
+console.log("min.index:", indexMin);
+
+
+
+// // *** F - TASK ***
+// // Shunday findDoublers function tuzing, unga faqat bitta string 
+// // argument pass bolib, agar stringda bir hil harf qatnashgan bolsa
+// // true, qatnashmasa false qaytarishi kerak.
+// // MASALAN: getReverse("hello") return true return qiladi
+
+// function findDoublers (str) {
+//     for (let i = 0; i <= str.length; i++) {
+//         for (let j = i + 1; j < str.length; j++) {  // bu yerda "j=i+1" => "i" indexdan keyingi harfga utib ket degan ma`no
+//             if(str[j] === str[i]) {
+//                 return true;
+//             }
+//         }
+//     }
+//     return false;
+// }
+
+// const natija = findDoublers("hello");
+// console.log("Natija:", natija);
 
 // *** E - TASK ***
 // Shunday function tuzing, u bitta string argumentni qabul qilib osha 
